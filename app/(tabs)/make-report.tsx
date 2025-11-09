@@ -1,37 +1,29 @@
 import { useReports } from "@/context/reportContext";
-import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function MakeReport() {
   const { addReport, loading } = useReports();
 
-  const [incidentType, setIncidentType] = useState("Enchente");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [time, setTime] = useState("");
 
   const handleSubmit = async () => {
-    if (!location.trim() || !description.trim() || !time.trim()) {
+    if (!location.trim() || !description.trim()) {
       return Alert.alert("Erro", "Preencha todos os campos");
     }
 
     try {
       await addReport({
-        incidentType,
-        locationText: location,
-        description,
-        time,
+        endereco: location,
         latitude: -23.55,
         longitude: -46.63,
       });
 
       Alert.alert("Sucesso", "Reporte criado!");
 
-      setIncidentType("Enchente");
       setLocation("");
       setDescription("");
-      setTime("");
     } catch (error: any) {
       Alert.alert("Erro", error.response?.data?.message || "Erro ao criar reporte");
     }
@@ -42,22 +34,9 @@ export default function MakeReport() {
       <Text style={styles.title}>Registrar Ocorrência</Text>
 
       <Text style={styles.label}>Tipo:</Text>
-      <View style={styles.pickerContainer}>
-        <Picker
-          selectedValue={incidentType}
-          onValueChange={(value) => setIncidentType(value)}
-          style={styles.picker}
-        >
-          <Picker.Item label="Enchente" value="Enchente" />
-          <Picker.Item label="Alagamento" value="Alagamento" />
-        </Picker>
-      </View>
 
       <Text style={styles.label}>Localização:</Text>
       <TextInput style={styles.input} value={location} onChangeText={setLocation} />
-
-      <Text style={styles.label}>Horário:</Text>
-      <TextInput style={styles.input} value={time} onChangeText={setTime} />
 
       <Text style={styles.label}>Descrição:</Text>
       <TextInput
