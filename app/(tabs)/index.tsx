@@ -15,9 +15,10 @@ import { MaterialIcons } from "@expo/vector-icons";
 import * as Location from "expo-location";
 import axios from "axios";
 import { useHeatmap, HeatmapPoint } from "@/context/HeatmapContext";
+import { AZURE_MAPS_KEY } from "@env";
 
 // Chave do Azure Maps, recomendado: variáveis de ambiente/proxy backend em produção!
-const AZURE_MAPS_KEY = "";
+// const AZURE_MAPS_KEY = "";
 
 // Interface para resultado de busca Azure Maps
 interface SearchResult {
