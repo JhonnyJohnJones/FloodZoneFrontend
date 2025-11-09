@@ -6,7 +6,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native
 import { MaterialIcons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-type TabType = 'home' | 'search' | 'add' | 'history' | 'profile';
+type TabType = 'home' | 'search' | 'add' | 'profile';
 
 interface Tab {
   id: TabType;
@@ -23,7 +23,6 @@ const tabs: Tab[] = [
   { id: 'home', label: 'Início', icon: 'home' },
   { id: 'search', label: 'Busca', icon: 'search' },
   { id: 'add', label: 'Central', icon: 'add' },
-  { id: 'history', label: 'Histórico', icon: 'history' },
   { id: 'profile', label: 'Perfil', icon: 'person' },
 ];
 

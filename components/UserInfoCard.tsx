@@ -9,10 +9,9 @@ interface UserInfo {
 
 interface UserInfoCardProps {
   userInfo: UserInfo;
-  onEditPress: () => void;
 }
 
-export default function UserInfoCard({ userInfo, onEditPress }: UserInfoCardProps) {
+export default function UserInfoCard({ userInfo }: UserInfoCardProps) {
   return (
     <View style={styles.container}>
       {/* Avatar Section */}
@@ -35,10 +34,6 @@ export default function UserInfoCard({ userInfo, onEditPress }: UserInfoCardProp
             <Text style={styles.fieldLabel}>Email:</Text>
             <Text style={styles.fieldValue}>{userInfo.email}</Text>
           </View>
-
-          <TouchableOpacity style={styles.changeButton} onPress={onEditPress}>
-            <Text style={styles.changeButtonText}>ALTERAR DADOS</Text>
-          </TouchableOpacity>
         </View>
       </View>
 
@@ -116,16 +111,5 @@ const styles = StyleSheet.create({
   fieldValue: {
     fontSize: 16,
     color: "#333",
-  },
-  changeButton: {
-    backgroundColor: "#1D8B42FF",
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 4,
-  },
-  changeButtonText: {
-    color: "#fff",
-    fontSize: 12,
-    fontWeight: "600",
   },
 });
