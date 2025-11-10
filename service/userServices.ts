@@ -28,7 +28,7 @@ export const userService = {
     await AsyncStorage.removeItem('@floodzone:token');
   },
 
-  async getUser(): Promise<IUser[]> {
+  async getUser(): Promise<IUser> {
     const res = await api.get(ENDPOINTS.users);
     return res.data;
   },
