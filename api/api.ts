@@ -5,7 +5,7 @@ import { API_URL } from "@env";
 // const API_BASE = 'http://127.0.0.1:8081/api'; 
 
 const api = axios.create({
-  baseURL: API_URL+'/api',
+  baseURL: API_URL+'api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
